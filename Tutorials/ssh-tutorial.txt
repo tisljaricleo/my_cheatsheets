@@ -1,0 +1,14 @@
+
+USE GIT CONSOLE!
+
+1. Create ssh keys
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
+
+1a. For legacy systems
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+2. Star ssh agent
+$ eval $(ssh-agent -s)
+
+3. Add ssh key to agent
+$ ssh-add name/or/path

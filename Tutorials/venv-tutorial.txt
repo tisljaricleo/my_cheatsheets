@@ -1,0 +1,31 @@
+0. Enable running scripts in powershell
+powershell.exe -ExecutionPolicy AllSigned
+
+1. Create venv
+python3 -m venv /path/to/new/virtual/environment
+
+1a. [Optional] Invoke venv command
+python -m venv c:\path\to\myenv
+
+2. Start venv
+a) Powershell: ...\Scripts\Activate.ps1
+b) Command: ...\Scripts\activate.bat
+
+3. Check is a venv's path is in sys.path
+(tutorial-env) $ python
+Python 3.5.1 (default, May  6 2016, 10:59:36)
+>>> import sys
+>>> sys.path
+
+4. Install packages from req. file
+(tutorial-env) $ python -m pip install -r requirements.txt
+
+
+*** IMPORTANT
+-	new numpy does not work with current windows10, fix will come in Jan 2021 
+	https://stackoverflow.com/questions/64729944/runtimeerror-the-current-numpy-installation-fails-to-pass-a-sanity-check-due-to
+	python -m pip install numpy==1.19.3
+-	export all packages
+	(tutorial-env) $ pip freeze > requirements.txt
+-	show all installed packages
+	(tutorial-env) $ pip list
