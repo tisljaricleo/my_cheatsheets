@@ -6,6 +6,11 @@ git config --global user.name "Your Name"
 1. Clone
 $ git clone git@github.com:tisljaricleo/repo_name.git
 
+
+*** PULL ***
+$ git pull
+
+
 2. Add
 $ git add . (all, or define filer or folders)
 
