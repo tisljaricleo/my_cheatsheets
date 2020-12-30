@@ -19,3 +19,10 @@ $ git commit -m "message"
 
 4. Push
 $ git push
+
+
+IMPORTANT
+-	Look at commits
+	$ git log
+-	Go back for one commit
+	$ git reset --hard HEAD~1
