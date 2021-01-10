@@ -2,6 +2,7 @@
 0. [Only once] Setup your identity
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
+git config core.autocrlf true  # removes warning about LF -> CRLF conversion
 
 1. Clone
 $ git clone git@github.com:tisljaricleo/repo_name.git
