@@ -26,3 +26,8 @@ IMPORTANT
 	$ git log
 -	Go back for one commit
 	$ git reset --hard HEAD~1
+-	Large file detected
+	1. remove file from git folder
+	2. $ git add .
+	3. Add changes to most recent commit
+		$ git commit --amend
