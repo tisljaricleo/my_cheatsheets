@@ -1,3 +1,6 @@
+00a) eval $(ssh-agent -s)
+00b) ssh-add path/to/key
+
 
 0. [Only once] Setup your identity
 git config --global user.email "you@example.com"
