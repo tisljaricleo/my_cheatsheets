@@ -1,3 +1,4 @@
+[Used for ssh connection]
 00a) eval $(ssh-agent -s)
 00b) ssh-add path/to/key
 
