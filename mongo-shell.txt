@@ -1,0 +1,31 @@
+
+1. Run mongod
+>> "path/to/mongod.exe" --dbpath "database/path/data/db"
+
+2. Run mongo.exe in second shell
+>> "path/to/mongo.exe"
+
+3. Show all databases
+>> db.adminCommand( { listDatabases: 1 } )
+
+4. Select database to use
+>> use DatabaseName
+
+5. Collection names
+db.getCollectionNames()
+>> db.getCollectionNames()
+
+6. Find data
+	- Only one entry 
+	>> db.collection.find().limit(1).pretty()
+	- Skip first 5 entries
+	>> db.collection.find().skip(5)
+	- Count
+	>> db.collection.count()
+
+7. Create and show index
+>> db.collection.createIndex({a: 1, b: 1})
+>> db.collection.getIndexes()
+
+8. Querry efficiency
+>> db.collection.find({a: 11111}).explain("executionStats")
