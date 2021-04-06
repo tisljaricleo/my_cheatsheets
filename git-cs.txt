@@ -25,6 +25,13 @@ $ git commit -m "message"
 4. Push
 $ git push
 
+5. Branches
+	5.1 If branch is already created
+	https://support.atlassian.com/bitbucket-cloud/docs/branch-a-repository/
+	$ git fetch && git checkout <branch_name>
+	$ git commit -m "message"
+	$ git push origin <branch_name> 
+
 
 IMPORTANT
 -	Look at commits

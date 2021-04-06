@@ -1,0 +1,35 @@
+
+0. Create venv
+	>> source bin/activate
+1. Create project
+	>> django-admin startproject project_name
+
+2. DATABASE
+	2.A. SQLlite (default) 
+	2.A.1 Init tables for database
+	>> python3 manage.py makemigrations
+	>> python3 manage.py migrate
+
+	2.B. PostgreSQL 
+	2.B.1 Install packages (https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart)
+	>> sudo apt update
+	>> sudo apt install postgresql postgresql-contrib
+	2.B.2 Create super user
+	2.B.3 Create user for django database
+	https://medium.com/@rudipy/how-to-connecting-postgresql-with-a-django-application-f479dc949a11
+	2.B.4 Install psycopg2
+	(venv) >> pip3 install psycopg2
+	Possible error:
+	https://unix.stackexchange.com/questions/345814/gcc-error-installing-psycopg2-package-for-python3-on-centos-7-3/583547
+
+
+3. Test
+	>> python3 manage.py runserver
+	Runs web app on localhost:8000
+4. Create an app
+	>> python3 manage.py startapp app_name
+	Must run this from /project_name/ folder
+
+5. Create admin site users
+	>> python3 manage.py createsuperuser
+
