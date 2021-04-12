@@ -1,6 +1,6 @@
 # My cheatsheats
 
-In this repo, I collect all my home-made cheatsheats.  
+In this repo, I collect all my homemade cheatsheats.  
 Feel free to use them!  
 
 ## Contact and connect
