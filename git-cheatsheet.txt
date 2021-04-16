@@ -41,6 +41,24 @@ $ git push
 		$ git push origin <feature_branch>		
 		THER CREATE PULL REQUEST ON Github
 
+
+6. Solving merge branch conflicts    
+	$ cd ~/<repo_directory>
+	$ git pull  # on main branch
+	$ git checkout <feature_branch>
+	# Pull the destination branch into the source branch. At this point, pulling the destination will try to merge it with the source and reveal all the conflicts.
+	$ git pull origin <destination_branch>
+	- When you merge two branches with conflicts locally, you'll get conflict 
+	markers in the file when you open your editor.
+	- Open the file to resolve the conflict. 
+	- You can do this using the command line or you can navigate to the file.
+	- Resolve the conflict and save the file
+	Add and commit the change.
+	$ git add <filename>
+	$ git commit -m'commit message'
+	Push the change to the remote.
+	git push origin <feature_branch>
+
 IMPORTANT
 -	Look at commits
 	$ git log
