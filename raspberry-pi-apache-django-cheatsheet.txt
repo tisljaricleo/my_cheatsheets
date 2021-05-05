@@ -1,0 +1,76 @@
+CREATE WEB SERVER
+From: https://pimylifeup.com/raspberry-pi-apache/
+
+1. Install apache
+  $ sudo apt-get update
+  $ sudo apt-get upgrade
+  $ sudo apt install apache2 -y
+  
+2. Permissions
+  $ sudo usermod -a -G www-data pi
+  $ sudo chown -R -f www-data:www-data /var/www/html
+
+SETUP DJANGO FRAMEWORK
+From: https://pimylifeup.com/raspberry-pi-django/
+
+1. Install packages
+  $ sudo apt install libapache2-mod-wsgi-py3
+  $ sudo apt install python3 python3-venv python3-pip
+  
+2. Configuring Apache for Django
+  $ sudo nano /etc/apache2/sites-enabled/000-default.conf
+  Add above </VirtualHost>:
+  Alias /static /home/pi/pidjango/static
+    <Directory /home/pi/pidjango/static>
+        Require all granted
+    </Directory>
+
+    <Directory /home/pi/pidjango/pidjango>
+        <Files wsgi.py>
+            Require all granted
+        </Files>
+    </Directory>
+    WSGIDaemonProcess django python-path=/home/pi/pidjango python-home=/home/pi/pidjango/djenv
+    WSGIProcessGroup django
+    WSGIScriptAlias / /home/pi/pidjango/pidjango/wsgi.py
+    
+3. Restart apache
+  $ sudo systemctl restart apache2
+  If error occurs, check for typos and apache status:
+  $ systemctl status apache2.service
+  Re-instalation of apache2 and ibapache2-mod-wsgi-py3 usualy helps :)
+  
+4. Setup Django project
+  $ mkdir -p /home/pi/pidjango/static
+  $ cd /home/pi/pidjango
+  $ python3 -m venv djenv
+  $ source djenv/bin/activate
+  $ python3 -m pip install django
+  $ django-admin startproject pidjango .
+  $ hostname -I
+  $ nano /home/pi/pidjango/pidjango/settings.py
+  Change:
+  ALLOWED_HOSTS = ["YOURIPADDRESS"]
+  Open browser: https://[YOURPIIPADDRESS] without running the Django server!
+
+5. Additional setup
+  Create superuser:
+  $ cd /home/pi/pidjango
+  $ python3 manage.py createsuperuser
+  
+  Re-create /static folder:
+  Add to the end of the settings.py file:
+  STATIC_ROOT = os.path.join( BASE_DIR, "static/")
+  $ cd /home/pi/pidjango
+  $ python3 manage.py collectstatic
+  
+  Make database writable:
+  https://stackoverflow.com/questions/34173547/django-apache-error-attempt-to-write-a-readonly-database
+  $ cd /home/pi/pidjango
+  $ chmod 755 db.sqlite3
+  
+  Change ownerships:
+  $ cd /home/pi/pidjango
+  $ sudo chown -R -f www-data:www.data db.sqlite3
+  $ sudo chown -R -f www-data:www.data djenv
+  
