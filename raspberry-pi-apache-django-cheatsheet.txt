@@ -72,5 +72,19 @@ From: https://pimylifeup.com/raspberry-pi-django/
   Change ownerships:
   $ cd /home/pi/pidjango
   $ sudo chown -R -f www-data:www.data db.sqlite3
-  $ sudo chown -R -f www-data:www.data djenv
+  $ sudo chown -R -f www-data:www.data .
+
+IMPORTANT NOTES!
+- if you want to install aditional python packages (ex. ppi install djangorestframework) or try to migrate models (python3 manage.py migrate) you could encouter problems with permissions. 
+  I deal wit that in following way:
+  1. Give ownership to pi user:
+    $ sudo chown -R pi:pi . 
+  2. Make changes
+  3. Return ownership to www-data
+    $ sudo chown -R -f www-data:www.data db.sqlite3
+    $ sudo chown -R -f www-data:www.data .
+ If yoou have better idea, please contact me!
+ 
+ - run `$ sudo systemctl restart apache2` for every change in the django code
+  
   
