@@ -1,0 +1,27 @@
+INSTALATION
+https://conda.io/projects/conda/en/latest/user-guide/install/linux.html
+
+TUTORIAL:
+https://towardsdatascience.com/managing-project-specific-environments-with-conda-b8b50aa8be0e
+
+CHEAT SHEET:
+https://conda.io/projects/conda/en/latest/user-guide/cheatsheet.html
+
+Updating to recent version:
+conda update --name base conda --yes
+
+CREATE ENV:
+conda create --name MYENV python=3.8
+
+ACTIVATE/DEACTIVATE ENV:
+conda activate MYENV
+conda deactivate
+
+Delete an entire environment:
+conda remove --name ENVNAME --all
+
+List all packages and versions in the active environment:
+conda list
+
+Make an exact copy of an environment:
+conda create --clone ENVNAME --name NEWENV
