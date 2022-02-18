@@ -32,6 +32,9 @@ $ git push
 		$ git commit -m "message"
 		$ git push origin <branch_name> 
 	5.1 Github
+		# If changes are done in old/different branch
+		$ git switch -c <new-branch>
+
 		$ git branch
 		$ git branch <feature_branch> 
 		$ git checkout <feature_branch> 
